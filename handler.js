@@ -7,8 +7,6 @@ var connection = mysql.createConnection({
   user: "root",
   password: "Varga123",
   database: "URL",
-  insecureAuth: true
-
 });
 
 connection.connect()
@@ -52,15 +50,16 @@ module.exports.forkorter = (event, context, callback) => {
 
 //funksjon nr2 
 module.exports.forlenger = (event, context, callback) => {
-  const shortUrl = JSON.parse(event.body).shortUrl;
-
+  const shortUrl = event.queryStringParameters.shortUrl;
+  console.log(shortUrl);
   connection.query(
-    'SELECT longUrl FROM `urler` WHERE `shortUrl` =' + shortUrl, function(error, results, fields) {
-      if (error) throw error;
-      console.log('The longUrl is ', results )
+    'SELECT * FROM `urler` WHERE `shortUrl` = ' + shortUrl, function(error, results, fields) {
+      
+      
       const payload = {
         shortUrl: shortUrl,
         longUrl: results,
+        results: "results",
       };
 
       const response = {

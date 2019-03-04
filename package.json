@@ -1,0 +1,19 @@
+{
+  "name": "shortener",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serverless-offline": "^4.7.1"
+  },
+  "dependencies": {
+    "js-sha256": "^0.9.0",
+    "json": "^9.0.6",
+    "mysql": "github:mysqljs/mysql"
+  }
+}
