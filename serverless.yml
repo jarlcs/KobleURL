@@ -1,0 +1,21 @@
+service: shortener
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+
+functions:
+  forkorter:
+    handler: handler.forkorter
+    events:
+      - http:
+          path: /forkort
+          method: post
+  forlengelse:
+    handler: handler.forlenger
+    events:
+      - http:
+          path: /forleng
+          method: get
